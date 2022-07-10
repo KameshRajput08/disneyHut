@@ -41,23 +41,36 @@ const SingleMovie = () => {
   };
 
   useEffect(() => {
-    const fetchMedia = async () => {
-      try {
-        const res = await publicRequest.get(
-          `/movie/${mediaId}?api_key=${api_key}`
-        );
-        setMovieData(res.data);
-      } catch (err) {
-        const tvData = await publicRequest.get(
-          `/tv/${mediaId}?api_key=${api_key}`
-        );
-        setMovieData(tvData.data);
+   const fetchMedia = async () => {
+     if (mediaType === "movie") {
+       const res = await publicRequest.get(
+         `/movie/${mediaId}?api_key=${api_key}`
+       );
+       setMovieData(res.data);
+     } else if (mediaType === "tv") {
+       const tvData = await publicRequest.get(
+         `/tv/${mediaId}?api_key=${api_key}`
+       );
+       setMovieData(tvData.data);
+     } else {
+         try {
+          const res = await publicRequest.get(
+            `/movie/${mediaId}?api_key=${api_key}`
+          );
+          setMovieData(res.data);
+        } catch (err) {
+          const tvData = await publicRequest.get(
+            `/tv/${mediaId}?api_key=${api_key}`
+          );
+          setMovieData(tvData.data);
+        }
       }
     };
     fetchMedia();
     setisLikedFunc();
     movieData?.seasons ? settype("movie") : settype("tv");
     window.scrollTo(0, 0);
+    setIsLiked(false);
     return () => {};
   }, [location]);
 
@@ -118,27 +131,7 @@ const SingleMovie = () => {
                         setIsLiked(false);
                         setIsLoading(false)
                       }}
-                    />
-                  ) : (
-                    <AddRounded
-                      className="icon"
-                      onClick={async () => {
-                        setIsLoading(true)
-                        const res = await dispatch(
-                          addtoLikedMovies({ movieData: movieData, email })
-                        );
-                        console.log(res)
-                        if (res.type === "disney/user/remove/movie/rejected") {
-                          toast.error("Movie is alredy in the Watchlist.");
-                        } else {
-                          toast.success(
-                            "Movie successfully added to the Watchlist."
-                          );
-                        }
-                        setIsLiked(true);
-                        setIsLoading(false)
-                      }}
-                    />
+                   q
                   )}
 
                   <span>Watchlist</span>
