@@ -3,7 +3,6 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 dotenv.config();
 import cors from "cors";
-import colors from "colors";
 import UserRoute from "./routes/userRoute.js";
 const port = process.env.PORT || 8800;
 
@@ -29,9 +28,9 @@ const connectDb = async () => {
 connectDb();
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("frontend/build"));
+  app.use(express.static("frontend/dist"));
   app.get("*", (req, res) => {
-    res.sendFile("/frontend/build");
+    res.sendFile("/frontend/dist");
   });
 }
 
