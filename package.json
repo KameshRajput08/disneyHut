@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node index.js",
     "server": "nodemon index.js",
-    "build": " cd ./frontend && npm i && npm run build"
+    "build": "npm i && cd ./frontend && npm i && npm run build"
   },
   "author": "kamesh",
   "license": "ISC",
