@@ -20,7 +20,7 @@ const connectDb = async () => {
       useUnifiedTopology: true,
     });
 
-    console.log(`MangoDb connected: ${conn.connection.host}`.cyan.underline);
+    console.log(`MangoDb connected: ${conn.connection.host}`);
   } catch (error) {
     console.log(error);
   }

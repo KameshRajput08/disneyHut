@@ -50,11 +50,7 @@ const Container = styled.div`
   grid-template-columns: repeat(5, minmax(0, 1fr));
   @media (max-width: 768px) {
     grid-template-columns: repeat(1, minmax(0, 1fr));
-    margin: 0 8px;
-  }
-
-  @media (max-width: 1200px) {
-    margin: 0 30px;
+    margin: 0 10px;
   }
 `;
 

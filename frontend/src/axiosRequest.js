@@ -6,7 +6,7 @@ export const publicRequest = axios.create({
     baseURL: baseUrl
 })
 
-const userRequestbaseUrl = 'http://localhost:5500'
+const userRequestbaseUrl = 'https://disney-hut.onrender.com/'
 
 export const userPublicRequest = axios.create({
     baseURL: userRequestbaseUrl,

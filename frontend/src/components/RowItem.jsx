@@ -64,4 +64,13 @@ const RowItemContainer = styled(motion.div)`
       border-radius: 8px;
     }
   }
+
+  @media (max-width: 768px) {
+    width: 110px;
+    height: 155px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 `;

@@ -112,16 +112,7 @@ const RowContainer = styled.div`
     padding-left: 50px;
 
     @media (max-width: 768px) {
-      padding-left: 20px;
-    }
-  }
-
-  @media (max-width: 768px) {
-    overflow: scroll;
-    scrollbar-width: 0;
-
-    &::-webkit-scrollbar {
-      display: none;
+      padding-left: 5px;
     }
   }
 
@@ -129,6 +120,15 @@ const RowContainer = styled.div`
     position: relative;
     padding: 0 40px;
     overflow: hidden;
+
+    @media (max-width: 768px) {
+      overflow: scroll;
+      scrollbar-width: 0;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
 
     @media (max-width: 768px) {
       padding: 0 0px;
